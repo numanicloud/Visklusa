@@ -5,6 +5,9 @@
     "^refs/heads/main$",
     "^refs/heads/nerdbank/v\\d+(?:\\.\\d+)?(?:\\.\\d+)?$"
   ],
+  "nugetPackageVersion": {
+    "semVer": 2
+  },
   "cloudBuild": {
     "buildNumber": {
       "enabled": true
