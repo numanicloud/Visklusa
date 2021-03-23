@@ -1,6 +1,6 @@
 ﻿using Visklusa.Notation.Json;
 
-namespace Visklusa.Basic.Json
+namespace Visklusa.Preset.Json
 {
 	public class ConverterFactory
 	{

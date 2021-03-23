@@ -2,7 +2,7 @@
 using System.Numerics;
 using Visklusa.Abstraction.Notation;
 
-namespace Visklusa.Basic
+namespace Visklusa.Preset
 {
 	public record Transform2(Vector2 Position, Vector2 Scale, float Angle) : ICapability
 	{
