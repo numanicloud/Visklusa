@@ -5,7 +5,15 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visklusa", "Visklusa\Visklusa.csproj", "{B5BFC4FC-8976-4C9C-B65A-F185CABC54C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visklusa.Basic", "Visklusa.Basic\Visklusa.Basic.csproj", "{629CC272-5A31-4B8B-A249-A6D91FA25240}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visklusa.Basic", "Visklusa.Basic\Visklusa.Basic.csproj", "{629CC272-5A31-4B8B-A249-A6D91FA25240}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visklusa.Abstraction", "Visklusa.Abstraction\Visklusa.Abstraction.csproj", "{A84727C9-EAAC-4809-99BC-96A483CBE7B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visklusa.Archiver.Zip", "Visklusa.Archiver.Zip\Visklusa.Archiver.Zip.csproj", "{83CA0936-B562-4622-9BB2-AB9F722B9FA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visklusa.Notation.Json", "Visklusa.Notation.Json\Visklusa.Notation.Json.csproj", "{E8AEFB6C-DED4-453B-A29E-4EFDD9C3C658}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visklusa.IO", "Visklusa.IO\Visklusa.IO.csproj", "{A3E9A2FD-C8C2-445F-A85B-1A547CC1C656}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,22 @@ Global
 		{629CC272-5A31-4B8B-A249-A6D91FA25240}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{629CC272-5A31-4B8B-A249-A6D91FA25240}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{629CC272-5A31-4B8B-A249-A6D91FA25240}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A84727C9-EAAC-4809-99BC-96A483CBE7B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A84727C9-EAAC-4809-99BC-96A483CBE7B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A84727C9-EAAC-4809-99BC-96A483CBE7B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A84727C9-EAAC-4809-99BC-96A483CBE7B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83CA0936-B562-4622-9BB2-AB9F722B9FA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83CA0936-B562-4622-9BB2-AB9F722B9FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83CA0936-B562-4622-9BB2-AB9F722B9FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83CA0936-B562-4622-9BB2-AB9F722B9FA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8AEFB6C-DED4-453B-A29E-4EFDD9C3C658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8AEFB6C-DED4-453B-A29E-4EFDD9C3C658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8AEFB6C-DED4-453B-A29E-4EFDD9C3C658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8AEFB6C-DED4-453B-A29E-4EFDD9C3C658}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3E9A2FD-C8C2-445F-A85B-1A547CC1C656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3E9A2FD-C8C2-445F-A85B-1A547CC1C656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3E9A2FD-C8C2-445F-A85B-1A547CC1C656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3E9A2FD-C8C2-445F-A85B-1A547CC1C656}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
