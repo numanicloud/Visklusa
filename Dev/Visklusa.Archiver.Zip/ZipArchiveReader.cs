@@ -6,18 +6,12 @@ namespace Visklusa.Archiver.Zip
 {
 	public class ZipArchiveReader : IArchiveReader
 	{
-		private readonly FileStream _file;
 		private readonly ZipArchive _zip;
 
 		public ZipArchiveReader(string packagePath)
 		{
-			_file = File.OpenRead(packagePath);
-			_zip = new ZipArchive(_file, ZipArchiveMode.Read);
-		}
-
-		public IAssetReader GetLayoutFile()
-		{
-			return new ZipAssetReader(_zip, "layout");
+			var file = File.OpenRead(packagePath);
+			_zip = new ZipArchive(file, ZipArchiveMode.Read);
 		}
 
 		public IAssetReader GetAsset(string filePath)
@@ -27,7 +21,6 @@ namespace Visklusa.Archiver.Zip
 
 		public void Dispose()
 		{
-			_file.Dispose();
 			_zip.Dispose();
 		}
 	}
