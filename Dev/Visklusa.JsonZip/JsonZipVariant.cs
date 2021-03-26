@@ -1,4 +1,6 @@
-﻿using Visklusa.Abstraction.Archiver;
+﻿using System;
+using System.Text.Json;
+using Visklusa.Abstraction.Archiver;
 using Visklusa.Abstraction.Notation;
 using Visklusa.Abstraction.Variant;
 using Visklusa.Archiver.Zip;
@@ -10,6 +12,7 @@ namespace Visklusa.JsonZip
 	{
 		private readonly string _packagePath;
 		private readonly JsonCapabilityRepository _repository;
+		private Func<JsonSerializerOptions, JsonSerializerOptions> _optionModifier;
 
 		public string LayoutFileName { get; } = "layout.json";
 
@@ -17,6 +20,12 @@ namespace Visklusa.JsonZip
 		{
 			_packagePath = packagePath;
 			_repository = repository;
+			_optionModifier = options => options;
+		}
+
+		public void SetOptionModifier(Func<JsonSerializerOptions, JsonSerializerOptions> selector)
+		{
+			_optionModifier = selector;
 		}
 
 		public IArchiveReader GetPackageReader()
@@ -31,12 +40,16 @@ namespace Visklusa.JsonZip
 
 		public IDeserializer GetDeserializer()
 		{
-			return new JsonLayoutSerializer(_repository);
+			var result = new JsonLayoutSerializer(_repository);
+			result.Options = _optionModifier(result.Options);
+			return result;
 		}
 
 		public ISerializer GetSerializer()
 		{
-			return new JsonLayoutSerializer(_repository);
+			var result = new JsonLayoutSerializer(_repository);
+			result.Options = _optionModifier(result.Options);
+			return result;
 		}
 	}
 }
