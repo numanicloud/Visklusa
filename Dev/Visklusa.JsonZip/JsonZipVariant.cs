@@ -8,7 +8,7 @@ using Visklusa.Notation.Json;
 
 namespace Visklusa.JsonZip
 {
-	internal class JsonZipVariant : IVisklusaVariant
+	public class JsonZipVariant : IVisklusaVariant
 	{
 		private readonly string _packagePath;
 		private readonly JsonCapabilityRepository _repository;
