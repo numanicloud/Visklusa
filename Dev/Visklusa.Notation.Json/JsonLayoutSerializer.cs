@@ -7,7 +7,13 @@ namespace Visklusa.Notation.Json
 {
 	public class JsonLayoutSerializer : ISerializer, IDeserializer
 	{
-		private readonly JsonSerializerOptions _options;
+		private JsonSerializerOptions _options;
+
+		public JsonSerializerOptions Options
+		{
+			get => _options;
+			set => _options = value;
+		}
 
 		public JsonLayoutSerializer(JsonCapabilityRepository repository)
 		{
