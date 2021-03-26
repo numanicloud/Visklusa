@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.IO.Compression;
 using Visklusa.Abstraction.Archiver;
 
@@ -18,12 +17,12 @@ namespace Visklusa.Archiver.Zip
 
 		public IAssetWriter GetDocumentWriter()
 		{
-			throw new NotImplementedException();
+			return new ZipAssetWriter(_zip, "layout");
 		}
 
 		public IAssetWriter GetAssetWriter(string filePath)
 		{
-			throw new NotImplementedException();
+			return new ZipAssetWriter(_zip, filePath);
 		}
 
 		public void Dispose()
