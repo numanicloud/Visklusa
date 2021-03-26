@@ -5,7 +5,7 @@ using Visklusa.Abstraction.Archiver;
 
 namespace Visklusa.Archiver.Zip
 {
-	internal class ZipArchiveWriter : IArchiveWriter
+	public class ZipArchiveWriter : IArchiveWriter
 	{
 		private readonly FileStream _file;
 		private readonly ZipArchive _zip;

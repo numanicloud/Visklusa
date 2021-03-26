@@ -5,7 +5,7 @@ using Visklusa.Abstraction.Notation;
 
 namespace Visklusa.Notation.Json
 {
-	internal class JsonLayoutSerializer : ISerializer, IDeserializer
+	public class JsonLayoutSerializer : ISerializer, IDeserializer
 	{
 		private readonly JsonSerializerOptions _options;
 

@@ -4,7 +4,7 @@ using Visklusa.Abstraction.Archiver;
 
 namespace Visklusa.Archiver.Zip
 {
-	internal class ZipAssetWriter : IAssetWriter
+	public class ZipAssetWriter : IAssetWriter
 	{
 		private readonly ZipArchive _zip;
 		public string FilePath { get; }

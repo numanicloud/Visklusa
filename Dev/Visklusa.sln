@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visklusa.Preset", "Visklusa.Basic\Visklusa.Preset.csproj", "{629CC272-5A31-4B8B-A249-A6D91FA25240}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visklusa.Abstraction", "Visklusa.Abstraction\Visklusa.Abstraction.csproj", "{A84727C9-EAAC-4809-99BC-96A483CBE7B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visklusa.Abstraction", "Visklusa.Abstraction\Visklusa.Abstraction.csproj", "{A84727C9-EAAC-4809-99BC-96A483CBE7B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visklusa.Archiver.Zip", "Visklusa.Archiver.Zip\Visklusa.Archiver.Zip.csproj", "{83CA0936-B562-4622-9BB2-AB9F722B9FA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visklusa.Archiver.Zip", "Visklusa.Archiver.Zip\Visklusa.Archiver.Zip.csproj", "{83CA0936-B562-4622-9BB2-AB9F722B9FA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visklusa.Notation.Json", "Visklusa.Notation.Json\Visklusa.Notation.Json.csproj", "{E8AEFB6C-DED4-453B-A29E-4EFDD9C3C658}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visklusa.Notation.Json", "Visklusa.Notation.Json\Visklusa.Notation.Json.csproj", "{E8AEFB6C-DED4-453B-A29E-4EFDD9C3C658}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visklusa.IO", "Visklusa.IO\Visklusa.IO.csproj", "{A3E9A2FD-C8C2-445F-A85B-1A547CC1C656}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visklusa.IO", "Visklusa.IO\Visklusa.IO.csproj", "{A3E9A2FD-C8C2-445F-A85B-1A547CC1C656}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visklusa.Preset", "Visklusa.Preset\Visklusa.Preset.csproj", "{01BC77B3-9EDD-49C1-BC13-1F46534723FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visklusa.JsonZip", "Visklusa.JsonZip\Visklusa.JsonZip.csproj", "{1DB6BC03-0F66-40E6-A733-99392118791E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{629CC272-5A31-4B8B-A249-A6D91FA25240}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{629CC272-5A31-4B8B-A249-A6D91FA25240}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{629CC272-5A31-4B8B-A249-A6D91FA25240}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{629CC272-5A31-4B8B-A249-A6D91FA25240}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A84727C9-EAAC-4809-99BC-96A483CBE7B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A84727C9-EAAC-4809-99BC-96A483CBE7B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A84727C9-EAAC-4809-99BC-96A483CBE7B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +37,14 @@ Global
 		{A3E9A2FD-C8C2-445F-A85B-1A547CC1C656}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3E9A2FD-C8C2-445F-A85B-1A547CC1C656}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3E9A2FD-C8C2-445F-A85B-1A547CC1C656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01BC77B3-9EDD-49C1-BC13-1F46534723FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01BC77B3-9EDD-49C1-BC13-1F46534723FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01BC77B3-9EDD-49C1-BC13-1F46534723FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01BC77B3-9EDD-49C1-BC13-1F46534723FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DB6BC03-0F66-40E6-A733-99392118791E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DB6BC03-0F66-40E6-A733-99392118791E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DB6BC03-0F66-40E6-A733-99392118791E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DB6BC03-0F66-40E6-A733-99392118791E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,7 +3,7 @@ using Visklusa.Abstraction.Archiver;
 
 namespace Visklusa.Archiver.Zip
 {
-	internal class ZipAssetReader : IAssetReader
+	public class ZipAssetReader : IAssetReader
 	{
 		private readonly ZipArchive _zip;
 		public string FilePath { get; }
