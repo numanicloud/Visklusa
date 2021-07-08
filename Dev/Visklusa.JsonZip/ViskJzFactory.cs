@@ -5,7 +5,8 @@ namespace Visklusa.JsonZip
 {
 	public class ViskJzFactory
 	{
-		public static VisklusaLoader GetLoader(string packagePath, JsonCapabilityRepository repository)
+		public static VisklusaLoader GetLoader
+			(string packagePath, JsonCapabilityRepository repository)
 		{
 			var variant = new JsonZipVariant(packagePath, repository);
 			return new VisklusaLoader(variant);

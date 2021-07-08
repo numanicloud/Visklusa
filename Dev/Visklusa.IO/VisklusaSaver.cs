@@ -11,7 +11,7 @@ namespace Visklusa.IO
 	public class VisklusaSaver : IDisposable
 	{
 		private readonly IVisklusaVariant _format;
-		private IArchiveWriter _writer;
+		private readonly IArchiveWriter _writer;
 		private readonly List<string> _assets = new();
 
 		public VisklusaSaver(IVisklusaVariant format)
