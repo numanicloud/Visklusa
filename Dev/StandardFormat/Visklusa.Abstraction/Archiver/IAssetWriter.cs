@@ -1,10 +1,9 @@
 ﻿using System;
 
-namespace Visklusa.Abstraction.Archiver
+namespace Visklusa.Abstraction.Archiver;
+
+public interface IAssetWriter
 {
-	public interface IAssetWriter
-	{
-		string FilePath { get; }
-		void Write(ReadOnlySpan<byte> data);
-	}
+	string AssetName { get; }
+	void Write(ReadOnlySpan<byte> data);
 }

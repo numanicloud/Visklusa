@@ -14,9 +14,9 @@ namespace Visklusa.Archiver.Zip
 			_zip = new ZipArchive(file, ZipArchiveMode.Create);
 		}
 
-		public IAssetWriter GetAssetWriter(string filePath)
+		public IAssetWriter GetAssetWriter(string assetName)
 		{
-			return new ZipAssetWriter(_zip, filePath);
+			return new ZipAssetWriter(_zip, assetName);
 		}
 
 		public void Dispose()

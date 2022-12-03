@@ -1,8 +1,7 @@
-﻿namespace Visklusa.Abstraction.Archiver
+﻿namespace Visklusa.Abstraction.Archiver;
+
+public interface IAssetReader
 {
-	public interface IAssetReader
-	{
-		string FilePath { get; }
-		byte[] Read();
-	}
+	string AssetName { get; }
+	byte[] Read();
 }

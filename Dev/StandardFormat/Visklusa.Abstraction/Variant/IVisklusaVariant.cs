@@ -1,4 +1,5 @@
-﻿using Visklusa.Abstraction.Archiver;
+﻿using System.Collections.Generic;
+using Visklusa.Abstraction.Archiver;
 using Visklusa.Abstraction.Notation;
 
 namespace Visklusa.Abstraction.Variant;
@@ -10,4 +11,5 @@ public interface IVisklusaVariant
 	IArchiveWriter GetPackageWriter();
 	IDeserializer GetDeserializer();
 	ISerializer GetSerializer();
+	IEnumerable<IAssetReader> GetAllAsset();
 }

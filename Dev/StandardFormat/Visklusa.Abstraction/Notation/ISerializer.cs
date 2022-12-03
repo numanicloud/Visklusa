@@ -1,7 +1,8 @@
-﻿namespace Visklusa.Abstraction.Notation
+﻿using Visklusa.Abstraction.Semantics;
+
+namespace Visklusa.Abstraction.Notation;
+
+public interface ISerializer
 {
-	public interface ISerializer
-	{
-		byte[] Serialize(Layout layout);
-	}
+	byte[] Serialize(Layout layout);
 }

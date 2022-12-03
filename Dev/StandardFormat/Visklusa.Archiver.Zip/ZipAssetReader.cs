@@ -6,17 +6,17 @@ namespace Visklusa.Archiver.Zip
 	public class ZipAssetReader : IAssetReader
 	{
 		private readonly ZipArchive _zip;
-		public string FilePath { get; }
+		public string AssetName { get; }
 
 		public ZipAssetReader(ZipArchive zip, string filePath)
 		{
 			_zip = zip;
-			FilePath = filePath;
+			AssetName = filePath;
 		}
 
 		public byte[] Read()
 		{
-			if (_zip.GetEntry(FilePath) is not {} entry)
+			if (_zip.GetEntry(AssetName) is not {} entry)
 			{
 				return new byte[0];
 			}

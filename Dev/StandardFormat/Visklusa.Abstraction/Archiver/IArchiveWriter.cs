@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace Visklusa.Abstraction.Archiver
+namespace Visklusa.Abstraction.Archiver;
+
+public interface IArchiveWriter : IDisposable
 {
-	public interface IArchiveWriter : IDisposable
-	{
-		IAssetWriter GetAssetWriter(string filePath);
-	}
+	IAssetWriter GetAssetWriter(string assetName);
 }

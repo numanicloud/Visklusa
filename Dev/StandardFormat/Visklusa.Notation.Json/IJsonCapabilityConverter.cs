@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using Visklusa.Abstraction.Notation;
+using Visklusa.Abstraction.Semantics;
 
 namespace Visklusa.Notation.Json
 {

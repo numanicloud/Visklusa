@@ -7,17 +7,17 @@ namespace Visklusa.Archiver.Zip
 	public class ZipAssetWriter : IAssetWriter
 	{
 		private readonly ZipArchive _zip;
-		public string FilePath { get; }
+		public string AssetName { get; }
 
 		public ZipAssetWriter(ZipArchive zip, string filePath)
 		{
 			_zip = zip;
-			FilePath = filePath;
+			AssetName = filePath;
 		}
 
 		public void Write(ReadOnlySpan<byte> data)
 		{
-			var entry = _zip.CreateEntry(FilePath);
+			var entry = _zip.CreateEntry(AssetName);
 			using var stream = entry.Open();
 			stream.Write(data);
 		}

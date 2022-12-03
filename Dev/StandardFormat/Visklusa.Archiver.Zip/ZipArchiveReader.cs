@@ -14,9 +14,9 @@ namespace Visklusa.Archiver.Zip
 			_zip = new ZipArchive(file, ZipArchiveMode.Read);
 		}
 
-		public IAssetReader GetAsset(string filePath)
+		public IAssetReader GetAsset(string assetName)
 		{
-			return new ZipAssetReader(_zip, filePath);
+			return new ZipAssetReader(_zip, assetName);
 		}
 
 		public void Dispose()

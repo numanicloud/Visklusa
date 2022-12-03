@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.Json;
 using Visklusa.Abstraction.Archiver;
 using Visklusa.Abstraction.Notation;
@@ -14,7 +15,11 @@ namespace Visklusa.JsonZip
 		private readonly JsonCapabilityRepository _repository;
 		private Func<JsonSerializerOptions, JsonSerializerOptions> _optionModifier;
 
-		public string LayoutFileName { get; } = "layout.json";
+		private JsonLayoutSerializer? _serializerCache;
+		private ZipArchiveReader? _readerCache;
+		private ZipArchiveWriter? _writerCache;
+
+		public string LayoutFileName => "layout.json";
 
 		public JsonZipVariant(string packagePath, JsonCapabilityRepository repository)
 		{
@@ -28,28 +33,39 @@ namespace Visklusa.JsonZip
 			_optionModifier = selector;
 		}
 
-		public IArchiveReader GetPackageReader()
+		public IArchiveReader GetPackageReader() =>
+			_readerCache ??= new ZipArchiveReader(_packagePath);
+
+		public IArchiveWriter GetPackageWriter() =>
+			_writerCache ??= new ZipArchiveWriter(_packagePath);
+
+		public IDeserializer GetDeserializer() => GetJsonSerializer();
+
+		public ISerializer GetSerializer() => GetJsonSerializer();
+		
+		public IEnumerable<IAssetReader> GetAllAsset()
 		{
-			return new ZipArchiveReader(_packagePath);
+			foreach (var assetName in LoadAllAssetNames())
+			{
+				yield return GetPackageReader().GetAsset(assetName);
+			}
 		}
 
-		public IArchiveWriter GetPackageWriter()
+		private JsonLayoutSerializer GetJsonSerializer()
 		{
-			return new ZipArchiveWriter(_packagePath);
+			if (_serializerCache is not null) return _serializerCache;
+			
+			_serializerCache = new JsonLayoutSerializer(_repository);
+			_serializerCache.Options = _optionModifier(_serializerCache.Options);
+			return _serializerCache;
 		}
 
-		public IDeserializer GetDeserializer()
+		private string[] LoadAllAssetNames()
 		{
-			var result = new JsonLayoutSerializer(_repository);
-			result.Options = _optionModifier(result.Options);
-			return result;
-		}
-
-		public ISerializer GetSerializer()
-		{
-			var result = new JsonLayoutSerializer(_repository);
-			result.Options = _optionModifier(result.Options);
-			return result;
+			var file = GetPackageReader()
+				.GetAsset("assets.json")
+				.Read();
+			return GetJsonSerializer().DeserializeAsStrings(file);
 		}
 	}
 }

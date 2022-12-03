@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Visklusa.Abstraction.Notation;
+using Visklusa.Abstraction.Semantics;
 
 namespace Visklusa.Notation.Json
 {
