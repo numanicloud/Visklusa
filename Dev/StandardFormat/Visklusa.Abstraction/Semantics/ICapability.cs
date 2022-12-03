@@ -1,11 +1,13 @@
-﻿namespace Visklusa.Abstraction.Semantics;
+﻿using System;
+
+namespace Visklusa.Abstraction.Semantics;
 
 public interface ICapability
 {
-	string CapabilityId { get; }
+	string Id { get; }
 }
 
-public interface IStaticCapability
+public interface ISerializableCapability : ICapability
 {
-	static abstract string CapabilityId { get; }
+	static abstract string IdToRead { get; }
 }

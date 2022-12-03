@@ -7,65 +7,64 @@ using Visklusa.Abstraction.Variant;
 using Visklusa.Archiver.Zip;
 using Visklusa.Notation.Json;
 
-namespace Visklusa.JsonZip
+namespace Visklusa.JsonZip;
+
+public class JsonZipVariant : IVisklusaVariant
 {
-	public class JsonZipVariant : IVisklusaVariant
+	private readonly string _packagePath;
+	private readonly JsonCapabilityRepository _repository;
+	private Func<JsonSerializerOptions, JsonSerializerOptions> _optionModifier;
+
+	private JsonLayoutSerializer? _serializerCache;
+	private ZipArchiveReader? _readerCache;
+	private ZipArchiveWriter? _writerCache;
+
+	public string LayoutFileName => "layout.json";
+
+	public JsonZipVariant(string packagePath, JsonCapabilityRepository repository)
 	{
-		private readonly string _packagePath;
-		private readonly JsonCapabilityRepository _repository;
-		private Func<JsonSerializerOptions, JsonSerializerOptions> _optionModifier;
+		_packagePath = packagePath;
+		_repository = repository;
+		_optionModifier = options => options;
+	}
 
-		private JsonLayoutSerializer? _serializerCache;
-		private ZipArchiveReader? _readerCache;
-		private ZipArchiveWriter? _writerCache;
+	public void SetOptionModifier(Func<JsonSerializerOptions, JsonSerializerOptions> selector)
+	{
+		_optionModifier = selector;
+	}
 
-		public string LayoutFileName => "layout.json";
+	public IArchiveReader GetPackageReader() =>
+		_readerCache ??= new ZipArchiveReader(_packagePath);
 
-		public JsonZipVariant(string packagePath, JsonCapabilityRepository repository)
-		{
-			_packagePath = packagePath;
-			_repository = repository;
-			_optionModifier = options => options;
-		}
+	public IArchiveWriter GetPackageWriter() =>
+		_writerCache ??= new ZipArchiveWriter(_packagePath);
 
-		public void SetOptionModifier(Func<JsonSerializerOptions, JsonSerializerOptions> selector)
-		{
-			_optionModifier = selector;
-		}
+	public IDeserializer GetDeserializer() => GetJsonSerializer();
 
-		public IArchiveReader GetPackageReader() =>
-			_readerCache ??= new ZipArchiveReader(_packagePath);
-
-		public IArchiveWriter GetPackageWriter() =>
-			_writerCache ??= new ZipArchiveWriter(_packagePath);
-
-		public IDeserializer GetDeserializer() => GetJsonSerializer();
-
-		public ISerializer GetSerializer() => GetJsonSerializer();
+	public ISerializer GetSerializer() => GetJsonSerializer();
 		
-		public IEnumerable<IAssetReader> GetAllAsset()
+	public IEnumerable<IAssetReader> GetAllAsset()
+	{
+		foreach (var assetName in LoadAllAssetNames())
 		{
-			foreach (var assetName in LoadAllAssetNames())
-			{
-				yield return GetPackageReader().GetAsset(assetName);
-			}
+			yield return GetPackageReader().GetAsset(assetName);
 		}
+	}
 
-		private JsonLayoutSerializer GetJsonSerializer()
-		{
-			if (_serializerCache is not null) return _serializerCache;
+	private JsonLayoutSerializer GetJsonSerializer()
+	{
+		if (_serializerCache is not null) return _serializerCache;
 			
-			_serializerCache = new JsonLayoutSerializer(_repository);
-			_serializerCache.Options = _optionModifier(_serializerCache.Options);
-			return _serializerCache;
-		}
+		_serializerCache = new JsonLayoutSerializer(_repository);
+		_serializerCache.Options = _optionModifier(_serializerCache.Options);
+		return _serializerCache;
+	}
 
-		private string[] LoadAllAssetNames()
-		{
-			var file = GetPackageReader()
-				.GetAsset("assets.json")
-				.Read();
-			return GetJsonSerializer().DeserializeAsStrings(file);
-		}
+	private string[] LoadAllAssetNames()
+	{
+		var file = GetPackageReader()
+			.GetAsset("assets.json")
+			.Read();
+		return GetJsonSerializer().DeserializeAsStrings(file);
 	}
 }

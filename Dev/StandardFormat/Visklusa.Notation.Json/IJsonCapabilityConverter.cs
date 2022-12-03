@@ -1,13 +1,11 @@
 ﻿using System.Text.Json;
-using Visklusa.Abstraction.Notation;
 using Visklusa.Abstraction.Semantics;
 
-namespace Visklusa.Notation.Json
+namespace Visklusa.Notation.Json;
+
+public interface IJsonCapabilityConverter
 {
-	public interface IJsonCapabilityConverter
-	{
-		string Id { get; }
-		ICapability? Read(ref Utf8JsonReader reader, JsonSerializerOptions options);
-		void Write(Utf8JsonWriter writer, ICapability value, JsonSerializerOptions options);
-	}
+	string Id { get; }
+	ICapability? Read(ref Utf8JsonReader reader, JsonSerializerOptions options);
+	void Write(Utf8JsonWriter writer, ICapability value, JsonSerializerOptions options);
 }

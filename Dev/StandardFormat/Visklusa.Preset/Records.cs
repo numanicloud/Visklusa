@@ -1,26 +1,27 @@
-﻿using Visklusa.Abstraction.Notation;
-using Visklusa.Abstraction.Semantics;
+﻿using Visklusa.Abstraction.Semantics;
 
 namespace Visklusa.Preset;
 
-public record struct Vector2(float X, float Y);
-
-public record BoundingBox(Vector2 Position, Vector2 Size) : IStaticCapability
+public record BoundingBox(int X, int Y, int Width, int Height) : ISerializableCapability
 {
-    public static string CapabilityId => "Visk.BoundingBox";
+    public static string IdToRead => "Visk.BoundingBox";
+    public string Id => IdToRead;
 }
 
-public record FamilyShip(int Id) : IStaticCapability
+public record FamilyShip(int ParentId) : ISerializableCapability
 {
-    public static string CapabilityId => "Visk.FamilyShip";
+    public static string IdToRead => "Visk.FamilyShip";
+    public string Id => IdToRead;
 }
 
-public record ZOffset(int Z) : IStaticCapability
+public record ZOffset(int Z) : ISerializableCapability
 {
-    public static string CapabilityId => "Visk.ZOffset";
+    public static string IdToRead => "Visk.ZOffset";
+    public string Id => IdToRead;
 }
 
-public record Image(string AssetName) : IStaticCapability
+public record Image(string AssetName) : ISerializableCapability
 {
-    public static string CapabilityId => "Visk.Image";
+    public static string IdToRead => "Visk.Image";
+    public string Id => IdToRead;
 }

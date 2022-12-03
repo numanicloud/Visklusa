@@ -1,3 +1,26 @@
-﻿namespace Visklusa.Abstraction.Semantics;
+﻿using System;
+using System.Linq;
+using System.Text;
 
-public record Layout(CapabilityAssertion Assertion, Element[] Elements);
+namespace Visklusa.Abstraction.Semantics;
+
+public record Layout(CapabilityAssertion Assertion, params Element[] Elements)
+{
+    public virtual bool Equals(Layout? other)
+    {
+        return other is { } layout
+               && Assertion == layout.Assertion
+               && Elements.SequenceEqual(layout.Elements);
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Assertion, Elements.GetDeepHashCode(3));
+    }
+
+    protected virtual bool PrintMembers(StringBuilder builder)
+    {
+        builder.Append($"Assertion = {Assertion}, Elements = {Elements.GetStringToPrint()}");
+        return true;
+    }
+}
