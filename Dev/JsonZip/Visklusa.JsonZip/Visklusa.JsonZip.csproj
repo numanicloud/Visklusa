@@ -7,9 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Visklusa.Abstraction\Visklusa.Abstraction.csproj" />
+    <ProjectReference Include="..\..\Standard\Visklusa.Abstraction\Visklusa.Abstraction.csproj" />
     <ProjectReference Include="..\Visklusa.Archiver.Zip\Visklusa.Archiver.Zip.csproj" />
-    <ProjectReference Include="..\Visklusa.IO\Visklusa.IO.csproj" />
     <ProjectReference Include="..\Visklusa.Notation.Json\Visklusa.Notation.Json.csproj" />
   </ItemGroup>
 

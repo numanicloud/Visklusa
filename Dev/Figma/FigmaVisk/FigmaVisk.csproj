@@ -23,9 +23,13 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Modules\FigmaSharp\FigmaSharp.Views\FigmaSharp.Views\FigmaSharp.Views.csproj" />
     <ProjectReference Include="..\..\..\Modules\FigmaSharp\FigmaSharp\FigmaSharp\FigmaSharp.csproj" />
+    <ProjectReference Include="..\..\JsonZip\Visklusa.Archiver.Zip\Visklusa.Archiver.Zip.csproj" />
+    <ProjectReference Include="..\..\JsonZip\Visklusa.JsonZip\Visklusa.JsonZip.csproj" />
+    <ProjectReference Include="..\..\JsonZip\Visklusa.Notation.Json\Visklusa.Notation.Json.csproj" />
+    <ProjectReference Include="..\..\Standard\Visklusa.Abstraction\Visklusa.Abstraction.csproj" />
+    <ProjectReference Include="..\..\Standard\Visklusa.IO\Visklusa.IO.csproj" />
+    <ProjectReference Include="..\..\Standard\Visklusa.Preset\Visklusa.Preset.csproj" />
     <ProjectReference Include="..\FigmaVisk.Capability\FigmaVisk.Capability.csproj" />
-    <ProjectReference Include="..\Visklusa.JsonZip\Visklusa.JsonZip.csproj" />
-    <ProjectReference Include="..\Visklusa.Preset\Visklusa.Preset.csproj" />
   </ItemGroup>
 
 </Project>

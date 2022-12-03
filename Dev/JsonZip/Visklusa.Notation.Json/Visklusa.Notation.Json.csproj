@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Visklusa.Abstraction\Visklusa.Abstraction.csproj" />
+    <ProjectReference Include="..\..\Standard\Visklusa.Abstraction\Visklusa.Abstraction.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Visklusa.Abstraction\Visklusa.Abstraction.csproj" />
+    <ProjectReference Include="..\..\Standard\Visklusa.Abstraction\Visklusa.Abstraction.csproj" />
   </ItemGroup>
 
 </Project>
