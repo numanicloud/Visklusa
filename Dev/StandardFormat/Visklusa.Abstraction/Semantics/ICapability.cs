@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Visklusa.Abstraction.Semantics;
+﻿namespace Visklusa.Abstraction.Semantics;
 
 public interface ICapability
 {

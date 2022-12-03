@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>11</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(Configuration)==Release">
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishTrimmed>true</PublishTrimmed>
+    <PublishReadyToRun>true</PublishReadyToRun>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Modules\FigmaSharp\FigmaSharp.Views\FigmaSharp.Views\FigmaSharp.Views.csproj" />
+    <ProjectReference Include="..\..\..\Modules\FigmaSharp\FigmaSharp\FigmaSharp\FigmaSharp.csproj" />
+    <ProjectReference Include="..\FigmaVisk.Capability\FigmaVisk.Capability.csproj" />
+    <ProjectReference Include="..\Visklusa.JsonZip\Visklusa.JsonZip.csproj" />
+    <ProjectReference Include="..\Visklusa.Preset\Visklusa.Preset.csproj" />
+  </ItemGroup>
+
+</Project>

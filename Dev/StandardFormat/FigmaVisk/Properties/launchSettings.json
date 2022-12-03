@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FigmaVisk": {
+      "commandName": "Project",
+      "commandLineArgs": "FileId=\"bG2THvuZmJLSqf3Pvghbpc\" Token=\"154108-fb48e8ec-095c-4af8-8ff8-a9600495fd83\" OutputPath=\"package.viskjz\""
+    }
+  }
+}

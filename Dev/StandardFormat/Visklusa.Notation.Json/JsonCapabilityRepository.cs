@@ -12,11 +12,6 @@ public class JsonCapabilityRepository
 		var converter = new JsonCapabilityBase<T>();
 		_table.Add(T.IdToRead, converter);
 	}
-	
-	public void Register(IJsonCapabilityConverter capability)
-	{
-		_table.Add(capability.Id, capability);
-	}
 
 	public IJsonCapabilityConverter? Get(string capabilityId)
 	{

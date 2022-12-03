@@ -1,0 +1,3 @@
+[submodule "Modules/FigmaSharp"]
+	path = Modules/FigmaSharp
+	url = https://github.com/microsoft/FigmaSharp.git
