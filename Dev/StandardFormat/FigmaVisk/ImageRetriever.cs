@@ -8,45 +8,44 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace FigmaVisk
+namespace FigmaVisk;
+
+internal class ImageRetriever
 {
-	internal class ImageRetriever
+	private readonly StartupOption _option;
+	private Dictionary<string, string>? _imageMap;
+
+	public ImageRetriever(IOptions<StartupOption> option)
 	{
-		private readonly StartupOption _option;
-		private Dictionary<string, string>? _imageMap;
+		_option = option.Value;
+	}
 
-		public ImageRetriever(IOptions<StartupOption> option)
+	[MemberNotNull(nameof(_imageMap))]
+	public async Task LoadAsync()
+	{
+		using var http = new HttpClient();
+		http.DefaultRequestHeaders.Add("X-FIGMA-TOKEN", _option.Token);
+
+		var requestUri = $"https://api.figma.com/v1/files/{_option.FileId}/images";
+		var response = await http.GetStringAsync(requestUri);
+
+		JObject.Parse(response)["meta"]["images"].Children();
+
+		var jsonElements = (JObject)JObject.Parse(response)["meta"]["images"];
+
+		_imageMap = jsonElements.Properties()
+			.ToDictionary(x => x.Name, x => (string)x.Value);
+	}
+
+	public async ValueTask<byte[]> DownloadAsync(string imageRef)
+	{
+		if (_imageMap is null)
 		{
-			_option = option.Value;
+			await LoadAsync();
 		}
 
-		[MemberNotNull(nameof(_imageMap))]
-		public async Task LoadAsync()
-		{
-			using var http = new HttpClient();
-			http.DefaultRequestHeaders.Add("X-FIGMA-TOKEN", _option.Token);
-
-			var requestUri = $"https://api.figma.com/v1/files/{_option.FileId}/images";
-			var response = await http.GetStringAsync(requestUri);
-
-			JObject.Parse(response)["meta"]["images"].Children();
-
-			var jsonElements = (JObject)JObject.Parse(response)["meta"]["images"];
-
-			_imageMap = jsonElements.Properties()
-				.ToDictionary(x => x.Name, x => (string)x.Value);
-		}
-
-		public async ValueTask<byte[]> DownloadAsync(string imageRef)
-		{
-			if (_imageMap is null)
-			{
-				await LoadAsync();
-			}
-
-			using var http = new HttpClient();
-			var url = _imageMap[imageRef];
-			return await http.GetByteArrayAsync(url);
-		}
+		using var http = new HttpClient();
+		var url = _imageMap[imageRef];
+		return await http.GetByteArrayAsync(url);
 	}
 }
