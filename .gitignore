@@ -362,5 +362,8 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
+# custom
+Workflow/publish-local.ps1
+Workflow/publish-local-all.ps1
 nugetapikey.txt
 .idea

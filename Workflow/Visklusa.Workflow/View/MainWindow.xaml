@@ -1,0 +1,59 @@
+﻿<Window x:Class="Visklusa.Workflow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Visklusa.Workflow"
+        xmlns:domain="clr-namespace:Visklusa.Workflow.Model"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="200" Width="600" d:DataContext="{d:DesignInstance domain:LauncherContext}">
+
+    <Window.Resources>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="150" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <ItemsControl ItemsSource="{Binding CommandViewModels}" Grid.Column="0" Margin="8">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Title}" Command="{Binding Command}"
+                            Padding="3" Margin="3" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <ItemsControl Background="Black" Foreground="White" Margin="8" Padding="4"
+                      Grid.Column="1" ItemsSource="{Binding Outputs}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Text}" x:Name="Line"/>
+                    <DataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Type}" Value="Default">
+                            <Setter TargetName="Line" Property="Foreground" Value="White"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Type}" Value="Warning">
+                            <Setter TargetName="Line" Property="Foreground" Value="Yellow"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Type}" Value="Error">
+                            <Setter TargetName="Line" Property="Foreground" Value="Red"></Setter>
+                        </DataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</Window>
