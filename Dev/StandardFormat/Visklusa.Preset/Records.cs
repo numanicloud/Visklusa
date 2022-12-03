@@ -1,35 +1,25 @@
-﻿using System.Drawing;
-using System.Numerics;
-using Visklusa.Abstraction.Notation;
+﻿using Visklusa.Abstraction.Notation;
 
-namespace Visklusa.Preset
+namespace Visklusa.Preset;
+
+public record struct Vector2(float X, float Y);
+
+public record BoundingBox(Vector2 Position, Vector2 Size) : IStaticCapability
 {
-	public record Transform2(Vector2 Position, Vector2 Scale, float Angle) : ICapability
-	{
-		public static readonly string Id = "Visklusa.Basic.Transform2";
+    public static string CapabilityId => "Visk.BoundingBox";
+}
 
-		public string CapabilityId { get; } = Id;
-	}
+public record FamilyShip(int Id) : IStaticCapability
+{
+    public static string CapabilityId => "Visk.FamilyShip";
+}
 
-	public record Texture(string FilePath) : ICapability
-	{
-		public static readonly string Id = "Visklusa.Basic.Texture";
+public record ZOffset(int Z) : IStaticCapability
+{
+    public static string CapabilityId => "Visk.ZOffset";
+}
 
-		public string CapabilityId { get; } = Id;
-	}
-
-	public record ColorData(Color Color) : ICapability
-	{
-		public static readonly string Id = "Visklusa.Basic.ColorData";
-
-		public string CapabilityId { get; } = Id;
-	}
-
-	public record RoundedRectangle
-		(float TopLeft, float TopRight, float BottomLeft, float BottomRight) : ICapability
-	{
-		public static readonly string Id = "Visklusa.Basic.RoundedRectangle";
-
-		public string CapabilityId { get; } = Id;
-	}
+public record Image(string AssetName) : IStaticCapability
+{
+    public static string CapabilityId => "Visk.Image";
 }

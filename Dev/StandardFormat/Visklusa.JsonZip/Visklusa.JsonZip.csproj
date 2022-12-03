@@ -1,10 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
+    <LangVersion>11</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Visklusa.Abstraction\Visklusa.Abstraction.csproj" />
     <ProjectReference Include="..\Visklusa.Archiver.Zip\Visklusa.Archiver.Zip.csproj" />
     <ProjectReference Include="..\Visklusa.IO\Visklusa.IO.csproj" />
     <ProjectReference Include="..\Visklusa.Notation.Json\Visklusa.Notation.Json.csproj" />

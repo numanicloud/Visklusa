@@ -14,4 +14,9 @@ namespace Visklusa.Abstraction.Notation
 	}
 
 	public record NothingCapability() : CapabilityRecord("Visklusa.Nothing");
+
+	public interface IStaticCapability
+	{
+		static abstract string CapabilityId { get; }
+	}
 }
