@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Text.Json;
 using Visklusa.Abstraction.Archiver;
-using Visklusa.Abstraction.Notation;
 using Visklusa.Abstraction.Semantics;
 using Visklusa.Abstraction.Variant;
 
@@ -33,22 +30,7 @@ namespace Visklusa.IO
 			return deserializer.Deserialize(bytes);
 		}
 
-		public IEnumerable<IAssetReader> GetAllAsset()
-		{
-			var assetList = _reader.GetAsset("assets.json").Read();
-			var json = Encoding.UTF8.GetString(assetList);
-			var assets = JsonSerializer.Deserialize<string[]>(json);
-
-			if (assets is null)
-			{
-				yield break;
-			}
-
-			foreach (var asset in assets)
-			{
-				yield return GetAsset(asset);
-			}
-		}
+		public IEnumerable<IAssetReader> GetAllAsset() => _format.GetAllAsset();
 
 		public void Dispose()
 		{
