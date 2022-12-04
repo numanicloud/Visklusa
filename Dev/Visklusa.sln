@@ -35,6 +35,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{76E9C2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visklusa.Access", "Client\Visklusa.Access\Visklusa.Access.csproj", "{0062E5AC-CF1D-480C-A8D4-750C176E9654}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visklusa.Access.Test", "Client\Visklusa.Access.Test\Visklusa.Access.Test.csproj", "{7240F693-9932-4202-9290-B4E5B857317C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,6 +91,10 @@ Global
 		{0062E5AC-CF1D-480C-A8D4-750C176E9654}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0062E5AC-CF1D-480C-A8D4-750C176E9654}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0062E5AC-CF1D-480C-A8D4-750C176E9654}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7240F693-9932-4202-9290-B4E5B857317C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7240F693-9932-4202-9290-B4E5B857317C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7240F693-9932-4202-9290-B4E5B857317C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7240F693-9932-4202-9290-B4E5B857317C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -109,5 +115,6 @@ Global
 		{F333AF35-C631-4FB2-990B-4D3EFF0CD0B5} = {C521A18D-68DD-499C-8D4B-2B079561AB1A}
 		{6734C223-64B8-4EC7-957C-0E20C51595F7} = {C521A18D-68DD-499C-8D4B-2B079561AB1A}
 		{0062E5AC-CF1D-480C-A8D4-750C176E9654} = {76E9C262-141E-45C3-BB0E-C23E38622E91}
+		{7240F693-9932-4202-9290-B4E5B857317C} = {76E9C262-141E-45C3-BB0E-C23E38622E91}
 	EndGlobalSection
 EndGlobal

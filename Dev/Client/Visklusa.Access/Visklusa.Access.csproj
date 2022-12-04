@@ -8,7 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Standard\Visklusa.Abstraction\Visklusa.Abstraction.csproj" />
-      <ProjectReference Include="..\..\Standard\Visklusa.IO\Visklusa.IO.csproj" />
+      <ProjectReference Include="..\..\Standard\Visklusa.Preset\Visklusa.Preset.csproj" />
     </ItemGroup>
 
 </Project>
