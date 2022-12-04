@@ -5,7 +5,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace FigmaVisk;

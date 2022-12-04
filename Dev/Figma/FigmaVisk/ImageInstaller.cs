@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FigmaVisk.Capability;
-using Visklusa.Abstraction.Notation;
 using Visklusa.Abstraction.Semantics;
 using Visklusa.IO;
 using Visklusa.Preset;
