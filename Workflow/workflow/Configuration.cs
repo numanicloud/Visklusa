@@ -2,5 +2,6 @@
 {
     public string LocalNuGetPath { get; set; } = default!;
     public string NuGetApiKey { get; set; } = default!;
-    public string[] ProjectPathsToPack { get; set; } = new string[0];
+    public string[] ProjectPathsToPack { get; set; } = Array.Empty<string>();
+    public string[] AppProjectPaths { get; set; } = Array.Empty<string>();
 }

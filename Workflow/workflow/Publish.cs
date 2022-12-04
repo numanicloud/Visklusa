@@ -39,6 +39,14 @@ public class Publish : ConsoleAppBase
         }
     }
 
+    public async Task Apps()
+    {
+        foreach (var projectPath in _config.Value.AppProjectPaths)
+        {
+            await $"dotnet publish {projectPath} -c Release -r win-x64 --self-contained -o Apps/";
+        }
+    }
+
     private async Task PublishNuGetPackageAsync(string projectPath, string pushOption)
     {
         var path = projectPath.AssertFilePathExt();

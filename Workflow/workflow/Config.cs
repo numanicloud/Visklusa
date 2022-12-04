@@ -14,7 +14,8 @@ public class Config : ConsoleAppBase
         var text = $@"{{
     ""{nameof(Configuration.LocalNuGetPath)}"": """",
     ""{nameof(Configuration.NuGetApiKey)}"": """",
-    ""{nameof(Configuration.ProjectPathsToPack)}"": []
+    ""{nameof(Configuration.ProjectPathsToPack)}"": [],
+    ""{nameof(Configuration.AppProjectPaths)}"": []
 }}";
 
         await using var file = File.Create("appsettings.json");
@@ -29,5 +30,8 @@ public class Config : ConsoleAppBase
 
         var projects = string.Join(",\n\t", _config.Value.ProjectPathsToPack);
         Console.WriteLine($"{nameof(Configuration.ProjectPathsToPack)}: [{projects}]");
+
+        var apps = string.Join(",\n\t", _config.Value.AppProjectPaths);
+        Console.WriteLine($"{nameof(Configuration.AppProjectPaths)}: [{apps}]");
     }
 }

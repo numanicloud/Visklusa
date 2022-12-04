@@ -368,3 +368,4 @@ Workflow/publish-local-all.ps1
 nugetapikey.txt
 .idea
 *.lnk
+Workflow/Apps
