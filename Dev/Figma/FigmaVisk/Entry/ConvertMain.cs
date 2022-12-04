@@ -33,13 +33,19 @@ internal class ConvertMain : IHostedService
 			_appLifetime.StopApplication();
 			return;
 		}
-
-		await _converter.RunAsync(_option);
-		_appLifetime.StopApplication();
+		
+		var forget = RunAsync(cancellationToken);
 	}
 
 	public Task StopAsync(CancellationToken cancellationToken)
 	{
 		return Task.CompletedTask;
+	}
+
+	private async Task RunAsync(CancellationToken ct)
+	{
+		await Task.Delay(1000, ct);
+		await _converter.RunAsync(_option);
+		_appLifetime.StopApplication();
 	}
 }

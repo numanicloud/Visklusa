@@ -17,6 +17,11 @@ namespace Visklusa.Archiver.Zip
 
 		public void Write(ReadOnlySpan<byte> data)
 		{
+			if (_zip.GetEntry(AssetName) is {} existing)
+			{
+				existing.Delete();
+			}
+			
 			var entry = _zip.CreateEntry(AssetName);
 			using var stream = entry.Open();
 			stream.Write(data);

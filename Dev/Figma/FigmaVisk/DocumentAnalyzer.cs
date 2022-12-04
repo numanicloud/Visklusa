@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using System.Net.Mime;
-using FigmaSharp;
 using FigmaSharp.Models;
 using FigmaVisk.Capability;
 using Visklusa.Abstraction.Semantics;
+using Visklusa.Preset;
 using Color = FigmaSharp.Color;
 
 namespace FigmaVisk;
@@ -19,7 +17,7 @@ internal class DocumentAnalyzer
 		var canvas = document.children[0];
 
 		var context = new RecursiveContext(0, 0);
-		return canvas.Traverse(
+		return canvas.Traverse<Element>(
 				(node, parent, depth) =>
 				{
 					context = context with { Depth = depth };
@@ -32,7 +30,7 @@ internal class DocumentAnalyzer
 						element = element with
 						{
 							Capabilities = element.Capabilities
-								.Append(new FamilyShip(parent.id))
+								.Append(new FamilyShip(parent.Id))
 								.ToArray()
 						};
 					}

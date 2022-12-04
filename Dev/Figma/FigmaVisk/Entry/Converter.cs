@@ -31,17 +31,21 @@ internal class Converter
 		var elements = await ScanElementsAsync(option);
 		var convertContext = GetConvertContext();
 		var variant = GetVariant(option, convertContext.Repository);
+
+		Console.WriteLine("Writing resulting archive...");
 		await SaveAsync(variant, elements, convertContext);
 	}
 
 	private async Task<NodeExport[]> ScanElementsAsync(StartupOption option)
 	{
+		Console.WriteLine("Downloading Figma design...");
 		var document = await _agent.Download(option);
 		if (document is null)
 		{
 			throw new Exception();
 		}
 
+		Console.WriteLine("Analyzing document...");
 		var elements = _documentAnalyzer.Analyze(document);
 		elements = _altTransformAnalyzer.Convert(elements);
 		var installations = _imageInstaller.Convert(elements);
@@ -82,8 +86,10 @@ internal class Converter
 	{
 		using var visk = new VisklusaSaver(variant);
 
+		Console.WriteLine("Serializing layout...");
 		visk.AddLayout(new Layout(convertContext.GetAssertion(), elements.Select(x => x.Element).ToArray()));
 
+		Console.WriteLine("Archiving images...");
 		foreach (var item in elements)
 		{
 			await item.Installation.OnSaveAsync(visk);

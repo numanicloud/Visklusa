@@ -2,7 +2,7 @@
 
 namespace Visklusa.Preset;
 
-public record BoundingBox(int X, int Y, int Width, int Height) : ISerializableCapability
+public record BoundingBox(float X, float Y, float Width, float Height) : ISerializableCapability
 {
     public static string IdToRead => "Visk.BoundingBox";
     public string Id => IdToRead;

@@ -3,18 +3,6 @@ using Visklusa.Abstraction.Semantics;
 
 namespace FigmaVisk.Capability;
 
-public record BoundingBox(float X, float Y, float Width, float Height) : ISerializableCapability
-{
-	public static string IdToRead => "FigmaVisk.BoundingBox";
-	public string Id => IdToRead;
-}
-
-public record ZOffset(float Z) : ISerializableCapability
-{
-	public static string IdToRead => "FigmaVisk.ZOffset";
-	public string Id => IdToRead;
-}
-
 public record Paint(Fill Fill, Stroke Stroke) : ISerializableCapability
 {
 	public static string IdToRead => "FigmaVisk.Paint";
@@ -42,12 +30,6 @@ public record ImageRef(string Url) : ISerializableCapability
 	public string Id => IdToRead;
 }
 
-public record Image(string AssetPath) : ISerializableCapability
-{
-	public static string IdToRead => "FigmaVisk.Image";
-	public string Id => IdToRead;
-}
-
 public record Text(string Content, string FontFamily, int FontSize, Fill Fill) : ISerializableCapability
 {
 	public static string IdToRead => "FigmaVisk.Text";
@@ -63,12 +45,6 @@ public record AltPosition(float X, float Y) : ISerializableCapability
 public record FigmaId(string NodeId, string Name) : ISerializableCapability
 {
 	public static string IdToRead => "FigmaVisk.FigmaId";
-	public string Id => IdToRead;
-}
-
-public record FamilyShip(string ParentsNodeId) : ISerializableCapability
-{
-	public static string IdToRead => "FigmaVisk.FamilyShip";
 	public string Id => IdToRead;
 }
 

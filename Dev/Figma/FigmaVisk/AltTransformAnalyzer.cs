@@ -2,6 +2,7 @@
 using System.Linq;
 using FigmaVisk.Capability;
 using Visklusa.Abstraction.Semantics;
+using Visklusa.Preset;
 
 namespace FigmaVisk;
 
@@ -25,7 +26,7 @@ internal class AltTransformAnalyzer
 				alts.Add((element, capability, matchName));
 
 				// 子孫要素も全て消す
-				foreach (var item in GetElementsToRemove(list, id))
+				foreach (var item in GetElementsToRemove(list, element.Id))
 				{
 					list.Remove(item);
 				}
@@ -51,21 +52,18 @@ internal class AltTransformAnalyzer
 		}).Concat(list).ToArray();
 	}
 
-	private IEnumerable<Element> GetElementsToRemove(IEnumerable<Element> list, FigmaId rootId)
+	private IEnumerable<Element> GetElementsToRemove(IList<Element> list, int rootId)
 	{
 		var children = list.Where(x => x.GetCapability<FamilyShip>() is { } family
-		                               && family.ParentsNodeId == rootId.NodeId)
+		                               && family.ParentId == rootId)
 			.ToArray();
 
 		foreach (var item in children)
 		{
 			yield return item;
-			if (item.GetCapability<FigmaId>() is {} id)
+			foreach (var element in GetElementsToRemove(list, item.Id))
 			{
-				foreach (var element in GetElementsToRemove(list, id))
-				{
-					yield return element;
-				}
+				yield return element;
 			}
 		}
 	}

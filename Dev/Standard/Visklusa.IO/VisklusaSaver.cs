@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.Json;
 using Visklusa.Abstraction.Archiver;
@@ -12,7 +13,7 @@ public class VisklusaSaver : IDisposable
 {
 	private readonly IVisklusaVariant _format;
 	private readonly IArchiveWriter _writer;
-	private readonly List<string> _assets = new();
+	private readonly HashSet<string> _assets = new();
 
 	public VisklusaSaver(IVisklusaVariant format)
 	{

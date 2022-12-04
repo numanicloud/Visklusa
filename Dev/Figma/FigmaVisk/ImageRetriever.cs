@@ -13,6 +13,7 @@ namespace FigmaVisk;
 internal class ImageRetriever
 {
 	private readonly StartupOption _option;
+	private Dictionary<string, byte[]> _imageCache = new ();
 	private Dictionary<string, string>? _imageMap;
 
 	public ImageRetriever(IOptions<StartupOption> option)
@@ -44,8 +45,14 @@ internal class ImageRetriever
 			await LoadAsync();
 		}
 
+		if (_imageCache.TryGetValue(imageRef, out var cached))
+		{
+			return cached;
+		}
+
+		Console.WriteLine($"Downloading image {imageRef}...");
 		using var http = new HttpClient();
 		var url = _imageMap[imageRef];
-		return await http.GetByteArrayAsync(url);
+		return _imageCache[imageRef] = await http.GetByteArrayAsync(url);
 	}
 }

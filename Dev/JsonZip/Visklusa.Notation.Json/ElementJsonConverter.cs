@@ -63,7 +63,14 @@ internal class ElementJsonConverter : JsonConverter<Element>
 		foreach (var capability in value.Capabilities)
 		{
 			writer.WritePropertyName(capability.Id);
-			_repository.Get(capability.Id)?.Write(writer, capability, options);
+			if (_repository.Get(capability.Id) is {} converter)
+			{
+				converter.Write(writer, capability, options);
+			}
+			else
+			{
+				writer.WriteRawValue("\"Error: Capability not found.\"");
+			}
 		}
 
 		writer.WriteEndObject();
