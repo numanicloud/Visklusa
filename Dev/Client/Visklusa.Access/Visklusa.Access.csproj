@@ -11,4 +11,8 @@
       <ProjectReference Include="..\..\Standard\Visklusa.Preset\Visklusa.Preset.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Remove="Nerdbank.GitVersioning" />
+    </ItemGroup>
+
 </Project>

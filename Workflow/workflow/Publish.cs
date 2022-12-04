@@ -14,13 +14,15 @@ public class Publish : ConsoleAppBase
     public async Task Local(string projectPath)
     {
         var localNugetPath = _config.Value.LocalNuGetPath.AssertDirectoryPath();
-        await PublishNuGetPackageAsync(projectPath, $"-s {localNugetPath.PathString}");
+        await PublishNuGetPackageAsync(projectPath,
+            $"-c Debug --include-symbols",
+            $"-s {localNugetPath.PathString}");
     }
 
     public async Task Nuget(string projectPath)
     {
         await PublishNuGetPackageAsync(projectPath,
-            $"-k {_config.Value.NuGetApiKey} -s https://api.nuget.org/v3/index.json");
+            $"-c Release", $"-k {_config.Value.NuGetApiKey} -s https://api.nuget.org/v3/index.json");
     }
 
     public async Task LocalAll()
@@ -47,15 +49,16 @@ public class Publish : ConsoleAppBase
         }
     }
 
-    private async Task PublishNuGetPackageAsync(string projectPath, string pushOption)
+    private async Task PublishNuGetPackageAsync(string projectPath, string packOption,
+        string pushOption)
     {
         var path = projectPath.AssertFilePathExt();
 
         var version = await $"nbgv get-version -v NuGetPackageVersion";
-        await $"dotnet pack {path.PathString} -o Pack/ -v minimal -p:PackageVersion={version}";
+        await $"dotnet pack {path.PathString} -o Pack/ -v minimal -p:PackageVersion={version} {packOption}";
 
         var projectName = Path.GetFileNameWithoutExtension(path.PathString)
             .AssertFilePath();
-        await $"dotnet nuget push \"Pack/{projectName}.{version}.nupkg\" {pushOption}";
+        await $"dotnet nuget push \"Pack/{projectName.PathString}.{version}.nupkg\" {pushOption}";
     }
 }

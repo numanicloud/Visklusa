@@ -12,4 +12,8 @@
     <ProjectReference Include="..\Visklusa.Notation.Json\Visklusa.Notation.Json.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Remove="Nerdbank.GitVersioning" />
+  </ItemGroup>
+
 </Project>

@@ -9,4 +9,8 @@
     <ProjectReference Include="..\Visklusa.Abstraction\Visklusa.Abstraction.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Remove="Nerdbank.GitVersioning" />
+  </ItemGroup>
+
 </Project>
