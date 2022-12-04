@@ -3,7 +3,7 @@
   "version": "1.0.0-alpha.{height}",
   "publicReleaseRefSpec": [
     "^refs/heads/main$",
-    "^refs/heads/nerdbank/zip/v\\d+(?:\\.\\d+)?(?:\\.\\d+)?$"
+    "^refs/heads/nerdbank/v\\d+(?:\\.\\d+)?(?:\\.\\d+)?$"
   ],
   "nugetPackageVersion": {
     "semVer": 2
@@ -14,6 +14,6 @@
     }
   },
   "release": {
-    "branchName": "nerdbank/zip/v{version}"
+    "branchName": "nerdbank/v{version}"
   }
 }

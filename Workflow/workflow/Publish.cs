@@ -51,7 +51,7 @@ public class Publish : ConsoleAppBase
     {
         var path = projectPath.AssertFilePathExt();
 
-        var version = await $"nbgv get-version -p {path.PathString} -v NuGetPackageVersion";
+        var version = await $"nbgv get-version -v NuGetPackageVersion";
         await $"dotnet pack {path.PathString} -o Pack/ -v minimal -p:PackageVersion={version}";
 
         var projectName = Path.GetFileNameWithoutExtension(path.PathString)
