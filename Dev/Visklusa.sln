@@ -31,6 +31,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigmaSharp", "..\Modules\Fi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigmaSharp.Views", "..\Modules\FigmaSharp\FigmaSharp.Views\FigmaSharp.Views\FigmaSharp.Views.csproj", "{6734C223-64B8-4EC7-957C-0E20C51595F7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{76E9C262-141E-45C3-BB0E-C23E38622E91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visklusa.Access", "Client\Visklusa.Access\Visklusa.Access.csproj", "{0062E5AC-CF1D-480C-A8D4-750C176E9654}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +85,10 @@ Global
 		{6734C223-64B8-4EC7-957C-0E20C51595F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6734C223-64B8-4EC7-957C-0E20C51595F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6734C223-64B8-4EC7-957C-0E20C51595F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0062E5AC-CF1D-480C-A8D4-750C176E9654}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0062E5AC-CF1D-480C-A8D4-750C176E9654}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0062E5AC-CF1D-480C-A8D4-750C176E9654}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0062E5AC-CF1D-480C-A8D4-750C176E9654}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,5 +108,6 @@ Global
 		{80E1C472-F261-4A36-9F53-CDA3E5707BCF} = {C521A18D-68DD-499C-8D4B-2B079561AB1A}
 		{F333AF35-C631-4FB2-990B-4D3EFF0CD0B5} = {C521A18D-68DD-499C-8D4B-2B079561AB1A}
 		{6734C223-64B8-4EC7-957C-0E20C51595F7} = {C521A18D-68DD-499C-8D4B-2B079561AB1A}
+		{0062E5AC-CF1D-480C-A8D4-750C176E9654} = {76E9C262-141E-45C3-BB0E-C23E38622E91}
 	EndGlobalSection
 EndGlobal

@@ -217,7 +217,7 @@ public static class Helpers
 
 	public static async Task RunCommandAsync(string command, IOutputTarget outputTarget)
 	{
-		var (process, stdOut, stdErr) = ProcessX.GetDualAsyncEnumerable(command, encoding: Encoding.UTF8);
+        var (process, stdOut, stdErr) = ProcessX.GetDualAsyncEnumerable(command, encoding: Encoding.UTF8);
 		var consumeStdOut = Task.Run(async () =>
 		{
 			await foreach (var item in stdOut)
@@ -233,6 +233,11 @@ public static class Helpers
 			}
 		});
 
-		await Task.WhenAny(process.WaitForExitAsync(), Task.WhenAll(consumeStdOut, consumeStdErr));
+        await Task.WhenAny(process.WaitForExitAsync(), Task.WhenAll(consumeStdOut, consumeStdErr));
 	}
+}
+
+class ObservableStream : TextWriter
+{
+    public override Encoding Encoding => Encoding.UTF8;
 }
